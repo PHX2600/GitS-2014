@@ -1,0 +1,5 @@
+http://www.corrupteddatarecovery.com/Port/8899tcp-Port-Type-ospf-lite-ospf-lite.asp
+
+Port 8899/tcp may be used for several services including ospf-lite and more. Port 8899/tcp is known to have vulnerabilities caused by trojans and remote code execution.
+
+A malformed request to port 8899/tcp is known to cause denial of service attacks. 

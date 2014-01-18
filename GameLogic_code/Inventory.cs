@@ -77,8 +77,8 @@ public class Inventory
 		}
 		else
 		{
-			Dictionary<string, int> dictionary;
-			(dictionary = this.itemCounts)[itemName] = dictionary[itemName] + count;
+			Dictionary<string, int> dictionary = this.itemCounts;
+			dictionary[itemName] = dictionary[itemName] + count;
 		}
 		this.dirty = true;
 		if (GameState.isServer)
@@ -101,8 +101,8 @@ public class Inventory
 		{
 			return false;
 		}
-		Dictionary<string, int> dictionary;
-		(dictionary = this.itemCounts)[itemName] = dictionary[itemName] - count;
+		Dictionary<string, int> dictionary = this.itemCounts;
+		dictionary[itemName] = dictionary[itemName] - count;
 		if (this.itemCounts[itemName] <= 0)
 		{
 			this.items.Remove(itemName);
@@ -176,8 +176,8 @@ public class Inventory
 		{
 			return;
 		}
-		Dictionary<string, int> dictionary;
-		(dictionary = this.itemLoadedAmmoCounts)[itemName] = dictionary[itemName] + count;
+		Dictionary<string, int> dictionary = this.itemLoadedAmmoCounts;
+		dictionary[itemName] = dictionary[itemName] + count;
 		if (GameState.isServer)
 		{
 			this.owner.SendUpdate(GameServerUpdate.CreateLoadedAmmoUpdate(itemName, this.itemLoadedAmmoCounts[itemName]));
@@ -203,8 +203,8 @@ public class Inventory
 		{
 			return false;
 		}
-		Dictionary<string, int> dictionary;
-		(dictionary = this.itemLoadedAmmoCounts)[itemName] = dictionary[itemName] - count;
+		Dictionary<string, int> dictionary = this.itemLoadedAmmoCounts;
+		dictionary[itemName] = dictionary[itemName] - count;
 		if (GameState.isServer)
 		{
 			this.owner.SendUpdate(GameServerUpdate.CreateLoadedAmmoUpdate(itemName, this.itemLoadedAmmoCounts[itemName]));

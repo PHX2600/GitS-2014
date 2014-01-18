@@ -244,9 +244,9 @@ public class Enemy : MonoBehaviour
 							{
 								if (dictionary.ContainsKey(loot.itemName))
 								{
-									Dictionary<string, int> dictionary2;
-									string itemName;
-									(dictionary2 = dictionary)[itemName = loot.itemName] = dictionary2[itemName] + num;
+									Dictionary<string, int> dictionary2 = dictionary;
+									string itemName = loot.itemName;
+									dictionary2[itemName] = dictionary2[itemName] + num;
 								}
 								else
 								{

@@ -933,54 +933,8 @@ public class ClientHandler
 		bool result = false;
 		string error = "";
 		AutoResetEvent doneEvent = new AutoResetEvent(false);
-		GameState.QueueRemoteEvent(delegate
-		{
-			if (!this.player.inventory.AdjustQuantityForItem("IAP", -quantity * itemPrice))
-			{
-				result = false;
-				error = "Not enough Gears for this purchase.";
-				doneEvent.Set();
-				return;
-			}
-			string itemName;
-			if (itemName == "Ammo")
-			{
-				string[] array = new string[]
-				{
-					"AssaultRifleAmmo",
-					"HolyHandGrenade",
-					"PistolAmmo",
-					"RevolverAmmo",
-					"ShotgunAmmo",
-					"SniperRifleAmmo",
-					"Wine"
-				};
-				string[] array2 = array;
-				for (int i = 0; i < array2.Length; i++)
-				{
-					itemName = array2[i];
-					int num = this.player.inventory.GetObjectForItemName(itemName).maximumCount - this.player.inventory.GetCountForItem(itemName);
-					if (num > 0)
-					{
-						this.player.inventory.AdjustQuantityForItem(itemName, num);
-					}
-				}
-			}
-			else
-			{
-				if (!this.player.inventory.AdjustQuantityForItem(itemName, quantity * itemQuantity))
-				{
-					this.player.inventory.AdjustQuantityForItem("IAP", quantity * itemPrice);
-					result = false;
-					error = "Quantity is invalid for this item.";
-					doneEvent.Set();
-					return;
-				}
-			}
-			result = true;
-			doneEvent.Set();
-		});
-		doneEvent.WaitOne();
+		//GameState.QueueRemoteEvent();
+		//doneEvent.WaitOne();
 		gameServerMessage = new GameServerMessage(GameServerMessage.Command.ResponseCommand);
 		writer = gameServerMessage.GetWriter();
 		writer.Write(result);

@@ -146,7 +146,7 @@ public class MasterServerConnection
 	}
 	public MasterServerConnection(string _host, int _port, MasterServerConnection.ConnectCallback cb)
 	{
-		MasterServerConnection $this = this;
+		MasterServerConnection o_this = this;
 		this.host = _host;
 		this.port = _port;
 		this.commandEvent = new AutoResetEvent(false);
@@ -157,14 +157,14 @@ public class MasterServerConnection
 		{
 			try
 			{
-				$this.stream = $this.Connect();
-				if ($this.stream == null)
+				o_this.stream = o_this.Connect();
+				if (o_this.stream == null)
 				{
-					object obj = $this.responseQueue;
+					object obj = o_this.responseQueue;
 					Monitor.Enter(obj);
 					try
 					{
-						$this.responseQueue.Enqueue(delegate
+						o_this.responseQueue.Enqueue(delegate
 						{
 							cb(false, "Unable to connect to master server");
 						});
@@ -183,11 +183,11 @@ public class MasterServerConnection
 					}
 					catch (Exception)
 					{
-						object obj2 = $this.responseQueue;
+						object obj2 = o_this.responseQueue;
 						Monitor.Enter(obj2);
 						try
 						{
-							$this.responseQueue.Enqueue(delegate
+							o_this.responseQueue.Enqueue(delegate
 							{
 								cb(false, "Server certificate missing");
 							});
@@ -198,7 +198,7 @@ public class MasterServerConnection
 						}
 						return;
 					}
-					SslStream sslStream = new SslStream($this.stream, false, delegate(object sender, X509Certificate serverCert, X509Chain chain, SslPolicyErrors errors)
+					SslStream sslStream = new SslStream(o_this.stream, false, delegate(object sender, X509Certificate serverCert, X509Chain chain, SslPolicyErrors errors)
 					{
 						if (errors == SslPolicyErrors.None)
 						{
@@ -219,7 +219,7 @@ public class MasterServerConnection
 						}
 						return true;
 					}, null);
-					$this.stream = sslStream;
+					o_this.stream = sslStream;
 					try
 					{
 						sslStream.AuthenticateAsClient("master");
@@ -227,11 +227,11 @@ public class MasterServerConnection
 					}
 					catch (Exception)
 					{
-						object obj3 = $this.responseQueue;
+						object obj3 = o_this.responseQueue;
 						Monitor.Enter(obj3);
 						try
 						{
-							$this.responseQueue.Enqueue(delegate
+							o_this.responseQueue.Enqueue(delegate
 							{
 								cb(false, "Secure connection failed");
 							});
@@ -242,17 +242,17 @@ public class MasterServerConnection
 						}
 						return;
 					}
-					$this.reader = new BinaryReader($this.stream);
-					$this.writer = new BinaryWriter($this.stream);
-					$this.writer.Write("PWN2");
-					int num = $this.reader.ReadInt32();
+					o_this.reader = new BinaryReader(o_this.stream);
+					o_this.writer = new BinaryWriter(o_this.stream);
+					o_this.writer.Write("PWN2");
+					int num = o_this.reader.ReadInt32();
 					if (9 < num)
 					{
-						object obj4 = $this.responseQueue;
+						object obj4 = o_this.responseQueue;
 						Monitor.Enter(obj4);
 						try
 						{
-							$this.responseQueue.Enqueue(delegate
+							o_this.responseQueue.Enqueue(delegate
 							{
 								cb(false, "Game version is out of date");
 							});
@@ -266,11 +266,11 @@ public class MasterServerConnection
 					{
 						if (9 > num)
 						{
-							object obj5 = $this.responseQueue;
+							object obj5 = o_this.responseQueue;
 							Monitor.Enter(obj5);
 							try
 							{
-								$this.responseQueue.Enqueue(delegate
+								o_this.responseQueue.Enqueue(delegate
 								{
 									cb(false, "Master server is out of date");
 								});
@@ -282,11 +282,11 @@ public class MasterServerConnection
 						}
 						else
 						{
-							object obj6 = $this.responseQueue;
+							object obj6 = o_this.responseQueue;
 							Monitor.Enter(obj6);
 							try
 							{
-								$this.responseQueue.Enqueue(delegate
+								o_this.responseQueue.Enqueue(delegate
 								{
 									cb(true, null);
 								});
@@ -301,11 +301,11 @@ public class MasterServerConnection
 			}
 			catch (Exception)
 			{
-				object obj7 = $this.responseQueue;
+				object obj7 = o_this.responseQueue;
 				Monitor.Enter(obj7);
 				try
 				{
-					$this.responseQueue.Enqueue(delegate
+					o_this.responseQueue.Enqueue(delegate
 					{
 						cb(false, "Unable to connect to master server");
 					});

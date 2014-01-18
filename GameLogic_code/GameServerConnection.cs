@@ -42,7 +42,7 @@ public class GameServerConnection
 	}
 	public GameServerConnection(string _host, int _port, GameServerConnection.ResultCallback cb)
 	{
-		GameServerConnection $this = this;
+		GameServerConnection o_this = this;
 		this.host = _host;
 		this.port = _port;
 		this.commandEvent = new AutoResetEvent(false);
@@ -52,18 +52,18 @@ public class GameServerConnection
 		{
 			try
 			{
-				$this.stream = $this.Connect();
-				if ($this.stream == null)
+				o_this.stream = o_this.Connect();
+				if (o_this.stream == null)
 				{
 					Debug.Log("Game server rejected connection");
 				}
-				object obj = $this.responseQueue;
+				object obj = o_this.responseQueue;
 				Monitor.Enter(obj);
 				try
 				{
-					$this.responseQueue.Enqueue(delegate
+					o_this.responseQueue.Enqueue(delegate
 					{
-						cb($this.stream != null);
+						cb(o_this.stream != null);
 					});
 				}
 				finally
@@ -73,11 +73,11 @@ public class GameServerConnection
 			}
 			catch (Exception)
 			{
-				object obj2 = $this.responseQueue;
+				object obj2 = o_this.responseQueue;
 				Monitor.Enter(obj2);
 				try
 				{
-					$this.responseQueue.Enqueue(delegate
+					o_this.responseQueue.Enqueue(delegate
 					{
 						cb(false);
 					});

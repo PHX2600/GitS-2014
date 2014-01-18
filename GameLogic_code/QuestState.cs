@@ -100,8 +100,8 @@ public class QuestState
 	}
 	public void IncrementKillCount(string name)
 	{
-		Dictionary<string, int> dictionary;
-		(dictionary = this.questKillCounts)[name] = dictionary[name] + 1;
+		Dictionary<string, int> dictionary = this.questKillCounts;
+		dictionary[name] = dictionary[name] + 1;
 		if (GameState.isServer && GameState.IsMasterServerConnected())
 		{
 			GameState.masterServer.SetKillCount(this.owner.id, name, this.questKillCounts[name]);

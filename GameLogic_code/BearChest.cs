@@ -93,15 +93,15 @@ public class BearChest : MonoBehaviour
 					}
 					if (flag)
 					{
-						Dictionary<Player, float> dictionary;
-						Player key;
-						(dictionary = this.countdowns)[key = current] = dictionary[key] - Time.deltaTime * 0.5f;
+						Dictionary<Player, float> dictionary = this.countdowns;
+						Player key = current;
+						dictionary[key] = dictionary[key] - Time.deltaTime * 0.5f;
 					}
 					else
 					{
-						Dictionary<Player, float> dictionary;
-						Player key2;
-						(dictionary = this.countdowns)[key2 = current] = dictionary[key2] - Time.deltaTime;
+						Dictionary<Player, float> dictionary = this.countdowns;
+						Player key2 = current;
+						dictionary[key2] = dictionary[key2] - Time.deltaTime;
 					}
 					if (current.health <= 0)
 					{

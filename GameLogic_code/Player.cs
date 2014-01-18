@@ -283,6 +283,8 @@ public class Player : ClientObject
 	}
 	public void Damage(Damage dmg)
 	{
+		// nogui: let's just quit early and never deal with pain? yeah, sounds like a plan
+		return;
 		if (this.health <= 0)
 		{
 			return;

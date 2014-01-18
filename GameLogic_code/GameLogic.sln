@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameLogic", "GameLogic.csproj", "97DAB2BC-4E3F-4841-B31C-E43F3BE4EE06"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B68D2E47-7A7D-440F-9618-6D987D358DB9}"
+	ProjectSection(SolutionItems) = preProject
+		dlls\Assembly-CSharp.dll = dlls\Assembly-CSharp.dll
+		dlls\Assembly-CSharp-firstpass.dll = dlls\Assembly-CSharp-firstpass.dll
+		dlls\Assembly-UnityScript.dll = dlls\Assembly-UnityScript.dll
+		dlls\Assembly-UnityScript-firstpass.dll = dlls\Assembly-UnityScript-firstpass.dll
+		dlls\Boo.Lang.dll = dlls\Boo.Lang.dll
+		dlls\KGFUtils.Settings.dll = dlls\KGFUtils.Settings.dll
+		dlls\Mono.Security.dll = dlls\Mono.Security.dll
+		dlls\mscorlib.dll = dlls\mscorlib.dll
+		dlls\System.Core.dll = dlls\System.Core.dll
+		dlls\System.dll = dlls\System.dll
+		dlls\UnityEngine.dll = dlls\UnityEngine.dll
+		dlls\UnityScript.Lang.dll = dlls\UnityScript.Lang.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		97DAB2BC-4E3F-4841-B31C-E43F3BE4EE06.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		97DAB2BC-4E3F-4841-B31C-E43F3BE4EE06.Debug|Any CPU.Build.0 = Debug|Any CPU
+		97DAB2BC-4E3F-4841-B31C-E43F3BE4EE06.Release|Any CPU.ActiveCfg = Release|Any CPU
+		97DAB2BC-4E3F-4841-B31C-E43F3BE4EE06.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = GameLogic.csproj
+	EndGlobalSection
+EndGlobal

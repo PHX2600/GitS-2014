@@ -138,12 +138,12 @@ public class QuestManager : MonoBehaviour
 		Quest quest = this.GetQuestByName(name);
 		if (quest == null)
 		{
-			Debug.Log("Tried to start quest '" + name + "' which did not exist");
+			Console.Out.Write("Tried to start quest '" + name + "' which did not exist");
 			return;
 		}
 		if (quest.objectives.Length == 0)
 		{
-			Debug.Log("Quest '" + name + "' has no objectives");
+			Console.Out.Write("Quest '" + name + "' has no objectives");
 			return;
 		}
 		player.questState.StartQuest(name, quest.objectives[0].internalName, quest.objectives[0].textState);
@@ -154,7 +154,7 @@ public class QuestManager : MonoBehaviour
 	{
 		if (!player.questState.HasQuest(name))
 		{
-			Debug.Log("Trying to continue quest '" + name + "' which has not been started");
+			Console.Out.Write("Trying to continue quest '" + name + "' which has not been started");
 			return;
 		}
 		player.questState.SetActiveQuest(name);

@@ -119,7 +119,7 @@ public class GameState : MonoBehaviour
 		{
 			if (!GameState.IsMasterServerConnected())
 			{
-				UnityEngine.Debug.LogError("Server is disconnected from master server, aborting");
+				Console.Out.Write("Server is disconnected from master server, aborting");
 				Process.GetCurrentProcess().Kill();
 			}
 			this.commitTimer -= Time.deltaTime;
@@ -171,7 +171,7 @@ public class GameState : MonoBehaviour
 					}
 					else
 					{
-						UnityEngine.Debug.Log(ex.ToString());
+						Console.Out.Write(ex.ToString());
 					}
 				}
 			}
@@ -234,7 +234,7 @@ public class GameState : MonoBehaviour
 		{
 			return;
 		}
-		UnityEngine.Debug.Log("Disconnected from master server");
+		Console.Out.Write("Disconnected from master server");
 		GameState.masterServer.Stop();
 		GameState.masterServer = null;
 	}
@@ -260,7 +260,7 @@ public class GameState : MonoBehaviour
 		{
 			return;
 		}
-		UnityEngine.Debug.Log("Disconnected from game server");
+		Console.Out.Write("Disconnected from game server");
 		GameState.gameServer.Stop();
 		GameState.gameServer = null;
 	}
@@ -277,6 +277,7 @@ public class GameState : MonoBehaviour
 	}
 	public static void ServerLog(string msg)
 	{
+		Console.Out.Write("ServerLog: " + msg);
 		if (GameState.isServer && GameState.IsMasterServerConnected())
 		{
 			GameState.masterServer.ServerLog(msg);

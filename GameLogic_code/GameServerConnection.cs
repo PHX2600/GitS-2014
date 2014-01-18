@@ -54,7 +54,7 @@ public class GameServerConnection
 				this.stream = this.Connect();
 				if (this.stream == null)
 				{
-					Debug.Log("Game server rejected connection");
+					Console.Out.Write("Game server rejected connection");
 				}
 				object obj = this.responseQueue;
 				Monitor.Enter(obj);
@@ -861,7 +861,7 @@ public class GameServerConnection
 						}
 						catch (Exception ex)
 						{
-							Debug.Log(ex.ToString());
+							Console.Out.Write(ex.ToString());
 						}
 					}
 					object obj2 = this.responseQueue;

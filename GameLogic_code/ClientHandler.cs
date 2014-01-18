@@ -14,9 +14,11 @@ public class ClientHandler
 	{
 		this.stream = s;
 		this.thread = new Thread(new ThreadStart(this.ClientThread));
+		Console.Out.WriteLine("ClientHandler public init (Stream s)");
 	}
 	private void Login(BinaryReader reader)
 	{
+		Console.Out.WriteLine("Trying to login...");
 		int id = reader.ReadInt32();
 		string token = reader.ReadString();
 		string previousExit = reader.ReadString();
@@ -1192,7 +1194,7 @@ public class ClientHandler
 		}
 		catch (Exception message)
 		{
-			Debug.LogError(message);
+			Console.Out.Write(message);
 			this.stream.Close();
 		}
 	}

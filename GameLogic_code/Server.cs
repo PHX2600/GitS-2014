@@ -70,7 +70,7 @@ public class Server : MonoBehaviour
 		}
 		if (text == null || user == null || pass == null || host == null)
 		{
-			UnityEngine.Debug.LogError("Server requires --master, --account, and --host options on command line");
+			Console.Out.Write("Server requires --master, --account, and --host options on command line");
 			Process.GetCurrentProcess().Kill();
 			return;
 		}
@@ -91,7 +91,7 @@ public class Server : MonoBehaviour
 		{
 			if (!connectOk)
 			{
-				UnityEngine.Debug.LogError(errorMsg);
+				Console.Out.Write(errorMsg);
 				Process.GetCurrentProcess().Kill();
 				return;
 			}
@@ -99,7 +99,7 @@ public class Server : MonoBehaviour
 			{
 				if (!loginOk)
 				{
-					UnityEngine.Debug.LogError("Access denied");
+					Console.Out.Write("Access denied");
 					Process.GetCurrentProcess().Kill();
 					return;
 				}

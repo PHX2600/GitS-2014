@@ -1,0 +1,63 @@
+/lib64/ld-linux-x86-64.so.2
+libm.so.6
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_Jv_RegisterClasses
+_ITM_registerTMCloneTable
+libc.so.6
+setuid
+socket
+vasprintf
+exit
+htonl
+htons
+__isoc99_sscanf
+signal
+strncpy
+fork
+listen
+getpwnam
+strlen
+send
+memset
+bind
+chdir
+setgroups
+recv
+setsockopt
+alarm
+close
+accept
+setgid
+__libc_start_main
+free
+GLIBC_2.2.5
+GLIBC_2.7
+5R% 
+%T% 
+%R% 
+%J% 
+%B% 
+%:% 
+%2% 
+%*% 
+%"% 
+%z$ 
+%r$ 
+UH- 1`
+UH- 1`
+l$ L
+t$(L
+|$0H
+Unable to set SIGCHLD handler
+Unable to create socket
+Unable to set reuse
+Unable to bind socket
+Unable to listen on socket
+Failed to find user %s
+drop_privs failed!
+gambino
+Bye.
+Stack cleared.
+Unknown op "%s"
+;*3$"

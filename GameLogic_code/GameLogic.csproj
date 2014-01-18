@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>97DAB2BC-4E3F-4841-B31C-E43F3BE4EE06</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <OutputType>Library</OutputType>
+    <AssemblyName>GameLogic</AssemblyName>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Platform)' == 'AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdDownload.cs" />
+    <Compile Include="ArenaState.cs" />
+    <Compile Include="Bandit.cs" />
+    <Compile Include="Bear.cs" />
+    <Compile Include="BearChest.cs" />
+    <Compile Include="Boar.cs" />
+    <Compile Include="Boss.cs" />
+    <Compile Include="BossChest.cs" />
+    <Compile Include="BossObjective.cs" />
+    <Compile Include="ChestLoot.cs" />
+    <Compile Include="ChestOfTheDead.cs" />
+    <Compile Include="ClientHandler.cs" />
+    <Compile Include="ClientObject.cs" />
+    <Compile Include="Damage.cs" />
+    <Compile Include="DeathZone.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="Entrance.cs" />
+    <Compile Include="Explosive.cs" />
+    <Compile Include="FollowPlayer.cs" />
+    <Compile Include="ForcedNPCInteract.cs" />
+    <Compile Include="GameLevel.cs" />
+    <Compile Include="GameServerConnection.cs" />
+    <Compile Include="GameServerMessage.cs" />
+    <Compile Include="GameServerUpdate.cs" />
+    <Compile Include="GameState.cs" />
+    <Compile Include="Inventory.cs" />
+    <Compile Include="InventoryItemCollection.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="ItemObjective.cs" />
+    <Compile Include="KillObjective.cs" />
+    <Compile Include="LevelTransition.cs" />
+    <Compile Include="LocalPlayerEvents.cs" />
+    <Compile Include="LocationObjective.cs" />
+    <Compile Include="Loot.cs" />
+    <Compile Include="LootableObject.cs" />
+    <Compile Include="LootCollection.cs" />
+    <Compile Include="MasterServerConnection.cs" />
+    <Compile Include="NPC.cs" />
+    <Compile Include="NPCQuestText.cs" />
+    <Compile Include="Objective.cs" />
+    <Compile Include="ObjectLoot.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="PlayerInfo.cs" />
+    <Compile Include="PlayerModelData.cs" />
+    <Compile Include="ProductKeyVerifier.cs" />
+    <Compile Include="PVPZone.cs" />
+    <Compile Include="Quest.cs" />
+    <Compile Include="QuestManager.cs" />
+    <Compile Include="QuestState.cs" />
+    <Compile Include="Rabbit.cs" />
+    <Compile Include="Rat.cs" />
+    <Compile Include="ReplicatedObject.cs" />
+    <Compile Include="Server.cs" />
+    <Compile Include="ServerInteractInfo.cs" />
+    <Compile Include="SnowMonster.cs" />
+    <Compile Include="SpawnableObject.cs" />
+    <Compile Include="Spawner.cs" />
+    <Compile Include="Spectator.cs" />
+    <Compile Include="Spider.cs" />
+    <Compile Include="StaticLootCollection.cs" />
+    <Compile Include="TalkObjective.cs" />
+    <Compile Include="TcpServer.cs" />
+    <Compile Include="ThirdPersonAvatar.cs" />
+    <Compile Include="ThirdPersonWeapon.cs" />
+    <Compile Include="ThrownWeapon.cs" />
+    <Compile Include="WalkingDead.cs" />
+    <Compile Include="Weapon.cs" />
+    <Compile Include="WeaponModelData.cs" />
+    <Compile Include="Wolf.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

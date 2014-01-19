@@ -9,7 +9,7 @@ scores = JSON.parse(open('https://2014.ghostintheshellcode.com/ajax/getScores?li
 scores.each_with_index do |team, index|
     if team['name'] == 'Pi Backwards'
         our_points = team['points']
-        our_rank = index
+        our_rank = index+1
     end
 end
 
